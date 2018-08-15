@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+	<properties resource="a.properties" />
+	
+	<settings>
+		<!-- 设置超时时间，它决定驱动等待一个数据库响应的时间  -->
+		<setting name="defaultStatementTimeout" value="25000" />
+	</settings>
+
+
+	<environments default="development">
+		<environment id="development">
+			<transactionManager  type="JDBC">
+			</transactionManager>
+			<dataSource type="POOLED">
+				<property name="driver" value="${driver}" />
+				<property name="url" value="${url}" />
+				<property name="username" value="${username}" />
+				<property name="password" value="${password}" />
+			</dataSource>
+		</environment>
+	</environments>
+	
+	<mappers>
+       <!--<mapper  resource="dao/Class1_mapper.xml" /> -->
+<mapper  class="dao.Class1_dao" />
+	</mappers>
+
+
+</configuration> 
