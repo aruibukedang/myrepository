@@ -25,8 +25,8 @@
 	</environments>
 	
 	<mappers>
-       <!--<mapper  resource="dao/Class1_mapper.xml" /> -->
-<mapper  class="dao.Class1_dao" />
+       <mapper  resource="dao/Class1_mapper.xml" />
+<!-- <mapper  class="dao.Class1_dao" /> -->
 	</mappers>
 
 

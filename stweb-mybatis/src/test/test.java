@@ -11,6 +11,7 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 import entity.Class1;
+import utils.searchInfo;
 
 
 
@@ -22,15 +23,25 @@ public class test {
 			InputStream is =Resources.getResourceAsStream("ae.xml");
 			SqlSessionFactory f = new SqlSessionFactoryBuilder().build(is);
 			SqlSession session = f.openSession();
-			List<Class1> user = session.selectList("select");
+		List<Class1> user = session.selectList("select",new searchInfo("where name like '%1%'"));
+		List<Class1> user1 = session.selectList("select",new searchInfo("where name like '%1%'"));
+//		session.delete("del",48);
+			
+//			session.insert("add","Mi");
+		    user.get(0).setA("aaa");
+			session.update("update",user.get(0));
+			session.commit();
 			session.close();
+			
+			
+			
 			for (Class1 t : user) {
-				System.out.println(t.getName());
+				System.out.print(t.getId());
+			System.out.println(t.getName());			
+		
 			
-			
-				
 			}
-			
+		
 			
 			
 		} catch (IOException e) {

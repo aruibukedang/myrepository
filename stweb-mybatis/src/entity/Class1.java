@@ -3,6 +3,15 @@ package entity;
 public class Class1 {
 	int id;
 	String name;
+	String a;
+	
+	
+	public String getA() {
+		return a;
+	}
+	public void setA(String a) {
+		this.a = a;
+	}
 	public int getId() {
 		return id;
 	}
