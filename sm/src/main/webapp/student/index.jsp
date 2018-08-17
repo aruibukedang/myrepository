@@ -1,4 +1,4 @@
-
+<%@page import="dao.SqlHelper"%>
 <%@page import="java.util.HashMap"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
@@ -62,28 +62,28 @@ var txt=${requestScope.txt};
 					retrun;
 				}
  				
- 				location.href="a?cmd=deleteall&ids="+ids;
+ 				location.href="deleteall?ids="+ids;
  			}
  		}
 
 
 		function del(id){
 			if(confirm("确定删除？")){
-				location.href="a?cmd=delete&id="+id;
+				location.href="delete?id="+id;
 			}
 		}
 		var a=0;
 		
 		function fresh(){
-			location.href="a";
+			location.href="index";
 		}
 		
 		function openwin() {
-			show("a?cmd=add",600,250);
+			show("add",600,250);
 		}
 		
 		function openwin2(c) {
-			show("a?cmd=edit&id="+c,600,250);
+			show("edit?id="+c,600,250);
 		}
 		
 		
@@ -99,7 +99,7 @@ var txt=${requestScope.txt};
 	<div class="demoTable">
 	
 	
- <form action="a" method="post" >
+ <form action="index" method="post" >
 
 <select class="sselect" name="select">
  <option value="0">姓名查询</option>
@@ -109,7 +109,7 @@ var txt=${requestScope.txt};
  </select>
  
   <input name="txt" class="sinput" > 
-  <input name="txt" class="sinput"  type="number"  > 
+  <input name="txt" class="sinput"  type="number" style="display: none;" > 
   <select name="txt" class="inputselect sinput" style="height:30px;display: none;">
 			<c:forEach items="${requestScope.stustatus}" var="r" varStatus="v">
 				<c:if test="${requestScope.info.status!=v.index}">
@@ -191,8 +191,8 @@ var txt=${requestScope.txt};
 		<div id="layui-table-page1">
 			<div class="layui-box layui-laypage layui-laypage-default" >
 			<span class="layui-laypage-skip">						
-		<button type="button" class="layui-laypage-btn" onclick="location.href='a?pageno=${prev}'" value="prev" >上一页</button>		
-			<button type="button" class="layui-laypage-btn" onclick="location.href='a?pageno=${next}'" vlaue="next" >下一页</button>
+		<button type="button" class="layui-laypage-btn" onclick="location.href='index?pageno=${prev}'" value="prev" >上一页</button>		
+			<button type="button" class="layui-laypage-btn" onclick="location.href='index?pageno=${next}'" vlaue="next" >下一页</button>
 			</span>
 				</div>
 				

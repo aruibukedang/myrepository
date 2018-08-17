@@ -1,4 +1,4 @@
-
+<%@page import="dao.SqlHelper"%>
 <%@page import="java.util.HashMap"%>
 <%@page import="java.util.ArrayList"%>
 <%@page language="java" pageEncoding="utf-8" isELIgnored="false"%>
@@ -12,11 +12,28 @@
 
 <script type="text/javascript" >
 
-$(function(){
+
+
+function save() {
+	$.post($(".f1").attr("action"),$(".f1").serialize(),function(json){
+		if(json.status>0){
+			parent.fresh();
+			var index=parent.layer.getFrameIndex(window.name);
+			
+		parent.layer.close(index);
+		}else{
+			alert(json.text);
+		}
+			
+	},"json");
+	}
+
+
+/* $(function(){
 	
 	$(document).on("click",".seachbt1",function(e){
 		e.preventDef1ault();
-		$.post("a",$(".f1").serialize(),function(json){
+		$.post($(".f1").attr("action"),$(".f1").serialize(),function(json){
 		if(json.status>0){
 			parent.fresh();
 			var index=parent.layer.getFrameIndex(window.name);
@@ -29,7 +46,7 @@ $(function(){
 	},"json");
 	})
 	
-})
+}) */
 
 </script>
 </head>
@@ -42,19 +59,21 @@ $(function(){
 
 
 
-	<form class="f1" action="a" method="post">
+	
 
 	
 <div class="inputview">
 
  	<c:if test="${requestScope.info!=null}">
-	<input type="hidden" name="cmd" value="update">
+ 	<form class="f1" action="update" method="post">
+	
 	<input type="hidden" name="id" value="${requestScope.info.id}">	
 </c:if>
 
 
 <c:if test="${requestScope.info==null}">
-	<input type="hidden" name="cmd" value="insert">
+<form class="f1" action="insert" method="post">
+	
 </c:if>
 
 	
@@ -108,15 +127,9 @@ $(function(){
 
 		</div>
 		<div class="inputbtpanel ">
-		<button class="seachbt1"  >保存</button>
+		<button class="seachbt1" type="submit" >保存</button>
 		</div>
 	</form>
-
-
-
-
-
-
 
 
 
