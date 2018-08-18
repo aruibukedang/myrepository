@@ -32,6 +32,9 @@ var txt=${requestScope.txt};
 				$(".slet").prop("checked","");
 			});
 			
+			
+			
+			
 			$(".sselect").on("change",function(){
 				$(".sinput").css("display","none").prop("disabled","disabled");
 				$($(".sinput")[$(".sselect").val()]).css("display","inline").removeAttr("disabled");

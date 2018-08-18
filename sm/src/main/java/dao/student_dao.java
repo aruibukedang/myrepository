@@ -13,8 +13,8 @@ import util.SearchInfo;
 
 @Repository
 public interface student_dao {
-	@Select("select student.*,c.name cname from student inner join class c on student.classid=c.id ${where} ${limit}  ")
-	public List<student> select(SearchInfo info);
+	 @Select("select student.*,c.name cname from student inner join class c on student.classid=c.id ${where} ${limit}  ")
+	 public List<student> select(SearchInfo info);
 	
      @Insert("insert into student (name,age,status,classid) values(#{name},#{age},#{status},#{classid})")
      public void insert(student s);

@@ -67,7 +67,7 @@ public class Test_Controller {
 		m.put("typerow",cService.select());
 		info.setWhere(where);
         m.put("search", info);
-        
+       
 		m.put("list", service.select(info));
 		
 		
