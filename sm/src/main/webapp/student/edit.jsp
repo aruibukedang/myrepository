@@ -1,4 +1,4 @@
-<%@page import="dao.SqlHelper"%>
+
 <%@page import="java.util.HashMap"%>
 <%@page import="java.util.ArrayList"%>
 <%@page language="java" pageEncoding="utf-8" isELIgnored="false"%>
@@ -15,6 +15,7 @@
 
 
 function save() {
+	
 	$.post($(".f1").attr("action"),$(".f1").serialize(),function(json){
 		if(json.status>0){
 			parent.fresh();
@@ -64,17 +65,18 @@ function save() {
 	
 <div class="inputview">
 
- 	<c:if test="${requestScope.info!=null}">
- 	<form class="f1" action="update" method="post">
+
+<c:if test="${requestScope.info==null}">
+  <form class="f1" action="insert" method="post">
 	
+</c:if>
+
+
+ 	<c:if test="${requestScope.info!=null}">
+ 	<form class="f1" action="update" method="post">	
 	<input type="hidden" name="id" value="${requestScope.info.id}">	
 </c:if>
 
-
-<c:if test="${requestScope.info==null}">
-<form class="f1" action="insert" method="post">
-	
-</c:if>
 
 	
 		<span class="inputspan"> 
@@ -127,7 +129,7 @@ function save() {
 
 		</div>
 		<div class="inputbtpanel ">
-		<button class="seachbt1" type="submit" >保存</button>
+		<button class="seachbt1" type=“button” onclick="save()" >保存</button>
 		</div>
 	</form>
 

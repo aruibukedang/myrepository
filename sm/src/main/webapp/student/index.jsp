@@ -1,4 +1,4 @@
-<%@page import="dao.SqlHelper"%>
+
 <%@page import="java.util.HashMap"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
@@ -191,8 +191,8 @@ var txt=${requestScope.txt};
 		<div id="layui-table-page1">
 			<div class="layui-box layui-laypage layui-laypage-default" >
 			<span class="layui-laypage-skip">						
-		<button type="button" class="layui-laypage-btn" onclick="location.href='index?pageno=${prev}'" value="prev" >上一页</button>		
-			<button type="button" class="layui-laypage-btn" onclick="location.href='index?pageno=${next}'" vlaue="next" >下一页</button>
+		<button type="button" class="layui-laypage-btn" onclick="location.href='index?pageno=${requestScope.search.prev}'" value="prev" >上一页</button>		
+			<button type="button" class="layui-laypage-btn" onclick="location.href='index?pageno=${requestScope.search.next}'" vlaue="next" >下一页</button>
 			</span>
 				</div>
 				

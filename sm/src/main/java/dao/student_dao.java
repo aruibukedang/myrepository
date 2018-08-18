@@ -9,17 +9,18 @@ import org.apache.ibatis.annotations.Update;
 import org.springframework.stereotype.Repository;
 
 import entity.student;
+import util.SearchInfo;
 
 @Repository
 public interface student_dao {
-	@Select("select * from student")
-	public List<student> select();
+	@Select("select student.*,c.name cname from student inner join class c on student.classid=c.id ${where} ${limit}  ")
+	public List<student> select(SearchInfo info);
 	
      @Insert("insert into student (name,age,status,classid) values(#{name},#{age},#{status},#{classid})")
      public void insert(student s);
      
      
-     @Update("update student set name=#{name},age={age},status=#{status},classid=#{classid} where id=#{id}")
+     @Update("update student set name=#{name},age=#{age},status=#{status},classid=#{classid} where id=#{id}")
      public void update(student s);
      
      @Delete("delete from student where id=#{id} ")

@@ -2,35 +2,37 @@ package serviceImpl;
 
 import java.util.List;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import dao.student_dao;
-import entity.student;
-import service.student_service;
-import util.SearchInfo;
+import dao.Class_dao;
+
+import entity.Class;
+
+import service.Class_service;
 
 
-@Service
-public class student_serviceImpl implements student_service {
+ @Service
+public class Class_serviceImpl implements Class_service {
 
 	@Autowired
-	student_dao dao;
+	Class_dao dao;
 	
-	
-	public List<student> select(SearchInfo info) {
+	public List<Class> select() {
+		return dao.select();
 		// TODO Auto-generated method stub
-		return dao.select(info);
+		
 	}
 
-	public void insert(student s) {
+	public void insert(Class c) {
 		// TODO Auto-generated method stub
-		dao.insert(s);
+		dao.insert(c);
 	}
 
-	public void update(student s) {
+	public void update(Class c) {
 		// TODO Auto-generated method stub
-		dao.update(s);
+		dao.update(c);
 	}
 
 	public void delete(int id) {
@@ -38,11 +40,15 @@ public class student_serviceImpl implements student_service {
 		dao.delete(id);
 	}
 
-	public student getById(int id) {
+	public Class getById(int id) {
 		// TODO Auto-generated method stub
 		return dao.getById(id);
 	}
+
 	
+	
+
+
 	
 
 }
