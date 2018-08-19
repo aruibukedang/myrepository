@@ -57,6 +57,7 @@ public class Test_Controller {
 				break;
 			default:
 				where=" where student.name like '%"+txt+"%'";
+				
 			}
 
 		}

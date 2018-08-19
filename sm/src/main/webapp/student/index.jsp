@@ -25,6 +25,11 @@ var select=${requestScope.select};
 var txt=${requestScope.txt};
 
          $(function() {
+        	 
+        	 
+        	 
+        	 
+        	 
 			$(".selectall").on("click",function(){
 			if(event.target.checked)
 				$(".slet").prop("checked","checked");
