@@ -1,7 +1,7 @@
 package util;
 
 public class SearchInfo {
-	int max = 3;
+	int max = 1000;
 	Integer pageno = 1;
 
 	public SearchInfo() {

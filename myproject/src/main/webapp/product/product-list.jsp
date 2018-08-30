@@ -89,7 +89,7 @@
 					<td>${r.activity}</td>
 					<td>${r.tip}</td>
 					<td>${r.sale}</td>
-					<td>${r.info}</td>
+					<td><a href="product_info?id=${r.id}">详细信息</a></td>
 					<td>${r.price}</td>
 					<td>${r.nowprice}</td>
 					<td>${r.salecount}</td>

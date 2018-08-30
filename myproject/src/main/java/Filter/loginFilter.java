@@ -1,4 +1,4 @@
-package Filter;
+/*package Filter;
 
 import java.io.IOException;
 import java.util.HashSet;
@@ -82,3 +82,4 @@ private boolean CanIgnore(HttpServletRequest req) {
 	}
 
 
+*/

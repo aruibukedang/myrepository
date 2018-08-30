@@ -2,9 +2,7 @@ package controller;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.Date;
 
-import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
@@ -19,25 +17,29 @@ public class file_Controller {
     public @ResponseBody String  fileUpload2(@RequestParam CommonsMultipartFile file,HttpServletRequest req) throws IOException {
          long  startTime=System.currentTimeMillis();
          
-         String filepath = req.getServletContext().getRealPath("/uploadFile/"); // ÈİÆ÷Ïà¶ÔÂ·¾¶
- 		File ww = new File(filepath);
+         String filepath = req.getServletContext().getRealPath("uploadFile"); // å®¹å™¨ç›¸å¯¹è·¯å¾„
+ 		String parentDir = new File(filepath).getParentFile().getParent();
+ 		parentDir=parentDir+"\\uploadFile";
+ 		File ww=new File(parentDir);
+;
  		if (!ww.exists()) {
  			ww.mkdirs();
  		}
  		
  		String filename = file.getOriginalFilename();
 		int pos = filename.lastIndexOf(".");
-		// È¡Í¼Æ¬ÎÄ¼ş¸ñÊ½
+		// å–å›¾ç‰‡æ–‡ä»¶æ ¼å¼
 		String ff;
 		if (pos > 0) {
 			 ff = startTime + filename.substring(pos);
 		}else {
 			ff = startTime+"";
 		}
-		filename = filepath + '/' + ff;
-        //Í¨¹ıCommonsMultipartFileµÄ·½·¨Ö±½ÓĞ´ÎÄ¼ş£¨×¢ÒâÕâ¸öÊ±ºò£©
+		filename = parentDir + '/' + ff;
+        //é€šè¿‡CommonsMultipartFileçš„æ–¹æ³•ç›´æ¥å†™æ–‡ä»¶ï¼ˆæ³¨æ„è¿™ä¸ªæ—¶å€™ï¼‰
         file.transferTo(new File(filename));
-        String p = req.getServletContext().getContextPath() + "/uploadFile/" + ff;
+       String p1= new File(req.getServletContext().getContextPath()).getParent(); 
+        String p = p1 + "/uploadFile/" + ff;
 		String json="{\"status\":1,\"url\":\""+p+"\"}";
         return json; 
     }

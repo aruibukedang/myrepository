@@ -55,12 +55,22 @@ public class product_Controller {
 			info.setWhere(where);
 	        m.put("search", info);
 	       
+	        
 			m.put("list", service.select(info));
 			
 			
 		return "product/product-list";
 				
 	}
+	
+	@RequestMapping("product_info")
+	public String product_info(ModelMap m, int id) {
+		m.put("info", service.getById(id));
+		return "product/info";
+		
+	}
+	
+	
 	
 	@RequestMapping("insert")
 	protected @ResponseBody jsonInfo insert(product p) {

@@ -26,6 +26,7 @@ public class product {
 		if(pics.length()<5)return new String[0];
 		return pics.split(",");
 	}
+	
 	public String getPic() {
 		if(pics.length()<5)return null;
 		String [] pic=pics.split(",");
@@ -34,6 +35,9 @@ public class product {
 		return pic[0];
 		else return null;
 	}
+	
+	
+
 	
 	
 	

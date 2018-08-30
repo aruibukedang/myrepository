@@ -38,48 +38,23 @@
 <script type="text/javascript" src="../fileupload/js/jquery-3.3.1.min.js"></script> 
 <script type="text/javascript" src="../fileupload/js/piclist.js"></script>
 
-<script type="text/javascript" src="../ueditor/ueditor.config.js"></script>
-<script type="text/javascript" src="../ueditor/ueditor.all.min.js"> </script>
-<script type="text/javascript" src="../ueditor/lang/zh-cn/zh-cn.js"></script>
+<script type="text/javascript" src="../Uediter/ueditor.config.js"></script>
+<script type="text/javascript" src="../Uediter/ueditor.all.min.js"> </script>
+<script type="text/javascript" src="../Uediter/lang/zh-cn/zh-cn.js"></script>
+
+   
 
 <script type="text/javascript">
 
-var ue = UE.getEditor('editor');
+var ue = UE.getEditor('container');
 ue.ready(function(){
 	ue.setContent("${requestScope.info.info}");
 	
 });
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 function save() {
-	var ue = UE.getEditor('editor');
-	ue.ready(function(){
-		ue.setContent("${requestScope.info.info}");
 		
-	});
-
-	
 	 $.post($(".form").attr("action"),$(".form").serialize(),function(json){
 		
 		if(json.status>0){
@@ -93,8 +68,6 @@ function save() {
 			
 	},"json");
 	
-	
-
 	}
 
 </script> 
@@ -263,9 +236,15 @@ function save() {
 		<br>
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-2">详细内容：</label>
+			
+			
+			
 			<div class="formControls col-xs-8 col-sm-9"> 
-				<script id="editor" type="text/plain"  style="width:100%;height:400px;"></script> 
-			</div>
+			
+			<!-- 加载编辑器的容器 -->
+   <script id="container" name="info" type="text/plain" style="width:1024px;height:500px;">
+      </script>
+			
 		</div>
 		
 	<br>
