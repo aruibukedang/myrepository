@@ -36,7 +36,7 @@ public class file_Controller {
 			ff = startTime+"";
 		}
 		filename = parentDir + '/' + ff;
-        //通过CommonsMultipartFile的方法直接写文件（注意这个时候）
+        //通过CommonsMultipartFile的方法直接写文件
         file.transferTo(new File(filename));
        String p1= new File(req.getServletContext().getContextPath()).getParent(); 
         String p = p1 + "/uploadFile/" + ff;
