@@ -39,6 +39,11 @@ public class orders_details_serviceImpl implements orders_details_service{
 		return ddao.getId(id);
 	}
 
+	public List<orders_details> select() {
+		
+		return ddao.select();
+	}
+
 	
 	
 }

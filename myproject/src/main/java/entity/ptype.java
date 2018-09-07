@@ -4,6 +4,7 @@ public class ptype {
 	private int id;
 	private String name;
 	private int parentid;
+	private String parent_name;
 	
 
 	public int getId() {
@@ -24,6 +25,13 @@ public class ptype {
 	public void setParentid(int parentid) {
 		this.parentid = parentid;
 	}
+	public String getParent_name() {
+		return parent_name;
+	}
+	public void setParent_name(String parent_name) {
+		this.parent_name = parent_name;
+	}
+
 	
 	
 

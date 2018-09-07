@@ -28,6 +28,7 @@ public interface product_service {
     
     public product getById(int id);
 	
-	
+ 
+	public void changestatus(product p);
 
 }

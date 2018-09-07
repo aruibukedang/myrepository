@@ -32,6 +32,9 @@ public interface product_dao {
      
  	@Delete("delete from user where id=#{ids}")
  	public void deleteall(String ids);
+ 	
+ 	@Update("update product set status=#{status} where id=#{id}")
+ 	public void changestatus(product p);
      
 //     public void deleteall();
 //     

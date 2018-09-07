@@ -9,22 +9,25 @@ import util.SearchInfo;
 public interface ptype_service {
 	
 	
-	public List<ptype> select1();
 	
-public List<ptype> select(SearchInfo info);
+	public List<ptype> select(SearchInfo s);
+
 	
-    
-    public void insert(ptype p);
-    
-    
-   
-    public void update(ptype p);
-    
-   
-    public void delete(int id);
-    
-    
-    public ptype getById(int id);
+	
+	public List<ptype> selectAll();
+	
+
+	public void insert(ptype t);
+
+	
+	public void delete(int id);
+
+
+	public void update(ptype t);
+
+	public ptype  getById(int id);
+	
+	
 	
 
 }

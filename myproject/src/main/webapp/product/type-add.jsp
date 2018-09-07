@@ -17,7 +17,7 @@
 <link rel="stylesheet" href="../fileupload/css/dropzone.css">
 <script type="text/javascript"
 	src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
-<script type="text/javascript" src="../fileupload/js/jquery.min.js"></script>
+<script type="text/javascript" src="../fileupload/js/jquery-3.3.1.min.js"></script>
 <link rel="stylesheet" href="../fileupload/css/basic.css">
 <script type="text/javascript" src="../fileupload/js/dropzone.js"></script>
 <script type="text/javascript" src="../fileupload/js/dropzone-amd-module.js"></script>
@@ -38,7 +38,7 @@
 			
 			
 			<div class="layui-input-inline">
-					<select name="parentid" class="inputselect">
+					<select name="parentid" class="inputselect" style="margin-left: 100px" >
 						<c:forEach items="${requestScope.product_type}" var="r" varStatus="v">
 							
 					<option  value="${r.id}">${r.name}</option>

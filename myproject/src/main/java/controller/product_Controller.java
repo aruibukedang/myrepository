@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import entity.product;
-
+import entity.ptype;
 import service.product_service;
 import service.ptype_service;
 import util.SearchInfo;
@@ -27,34 +27,17 @@ public class product_Controller {
 	ptype_service   pService;
 
 	@RequestMapping("product-list")
-	private String index(ModelMap m,SearchInfo info ,Integer select ,String txt) {
-		  if (select==null)select=0; 
-			String where ="";
-			if (txt!=null&&txt.length()>0) {
-				switch (select) {
-				case 1:
-					where=" where student.age ="+txt+" ";
-					break;
-				case 2:
-					where=" where student.status="+txt+" ";
-					break;
-				case 3:
-					where=" where student.classid="+txt+" ";
-					break;
-				default:
-					where=" where student.name like '%"+txt+"%'";
-					
-				}
+	private String index(ModelMap m,SearchInfo info,Integer parentid ) {
+		 
+		
+		m.put("typelist", pService.select(new SearchInfo(" where type.parentid=0 ",false)));
 
-			}
-				
-			m.put("select", select);
-			m.put("txt",select==0?"'"+txt+"'":txt);
-		    
-			m.put("typerow",pService.select1());
-			info.setWhere(where);
-	        m.put("search", info);
-	       
+		if(parentid==null) parentid=0;	
+		m.put("parentid", parentid);
+	
+			m.put("typerow",pService.selectAll());
+			
+	   
 	        
 			m.put("list", service.select(info));
 			
@@ -62,6 +45,25 @@ public class product_Controller {
 		return "product/product-list";
 				
 	}
+	
+	
+//	public String productselect(ModelMap m,int value) {
+//		m.put("list", value)
+//		
+//		return null;
+//		
+//	}
+	
+	@RequestMapping("changestatus")
+	public @ResponseBody jsonInfo changestatus(product p) {
+		
+		service.changestatus(p);
+		
+		return new jsonInfo(1, "");
+		
+	}
+	
+	
 	
 	@RequestMapping("product_info")
 	public String product_info(ModelMap m, int id) {
@@ -107,7 +109,7 @@ public class product_Controller {
 	@RequestMapping("add")
 	protected String add(ModelMap m) {
 		m.put("stustatus",  product.statuses);
-		m.put("typerow", pService.select1());
+		m.put("typerow", pService.selectAll());
 		return "product/edit";
 	}
 	

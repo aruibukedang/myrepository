@@ -15,8 +15,8 @@ public class order_serviceImpl implements order_service{
 	@Autowired
 	order_dao rdao;
 
-	public List<orders> def(String txt) {
-		return rdao.def(txt);
+	public List<orders> def() {
+		return rdao.def();
 	}
 
 	public void insert(orders r) {

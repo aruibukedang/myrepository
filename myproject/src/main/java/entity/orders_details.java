@@ -9,6 +9,16 @@ public class orders_details {
 	double price;
 	double nowprice;
 	String comments;
+	String fullname;
+	
+	
+	
+	public String getFullname() {
+		return fullname;
+	}
+	public void setFullname(String fullname) {
+		this.fullname = fullname;
+	}
 	public int getId() {
 		return id;
 	}

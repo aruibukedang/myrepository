@@ -21,10 +21,25 @@
 <link rel="stylesheet" type="text/css" href="../m1/lib/Hui-iconfont/1.0.8/iconfont.css" />
 <link rel="stylesheet" type="text/css" href="../m1/static/h-ui.admin/skin/default/skin.css" id="skin" />
 <link rel="stylesheet" type="text/css" href="../m1/static/h-ui.admin/css/style.css" />
-<!--[if IE 6]>
-<script type="text/javascript" src="lib/DD_belatedPNG_0.0.8a-min.js" ></script>
-<script>DD_belatedPNG.fix('*');</script>
-<![endif]-->
+
+ <style type="text/css">
+ .input-text{
+ width: 400px;
+ height: 40px;
+ }
+ .inputselect{
+ width:80px;
+ height: 30px;
+ font-size: 15px;
+ }
+ option{
+ width:80px;
+ height: 30px;
+ font-size: 15px;
+ }
+ 
+ </style>
+
 <!--/meta 作为公共模版分离出去-->
 
 <title>新建网站角色 - 管理员管理 - H-ui.admin v3.1</title>
@@ -52,7 +67,7 @@
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>姓名：</label>
 			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" class="input-text" value="${requestScope.info.name}" placeholder="" id="roleName" name="name">
+				<input  type="text" class="input-text" value="${requestScope.info.name}" placeholder="" id="roleName" name="name">
 			</div>
 		</div>
 		<div class="row cl">

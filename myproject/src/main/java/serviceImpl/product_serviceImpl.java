@@ -47,6 +47,13 @@ public class product_serviceImpl implements product_service {
 	
 		return dao.getById(id);
 	}
+
+	public void changestatus(product p) {
+		dao.changestatus(p);
+		
+	}
+
+	
 	
 	
 	

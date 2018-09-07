@@ -16,6 +16,9 @@ public interface orders_details_dao {
 	
 	@Select(value = "select * from orders_details where orders_id like CONCAT(CONCAT('%', #{txt}),'%')")
 	public List<orders_details> def(String txt);
+	
+	@Select ("select o.*,product.fullname from orders_details o left join product on o.product_id=product.id")
+	public List<orders_details> select();
 
 	@Insert("insert into orders_details(orders_id,product_id,count,price,nowprice,comments) values(#{orders_id},#{product_id},#{count},#{price},#{nowprice},#{comments})")
 	public void insert(orders_details d);

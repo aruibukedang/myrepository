@@ -1,4 +1,5 @@
-/*package controller;
+
+package controller;
 
 
 
@@ -17,15 +18,16 @@ import util.SearchInfo;
 import util.jsonInfo;
 
 
+
 @Controller
-@RequestMapping("type")
-public class ptype_controller {
+@RequestMapping("product")
+public class ptype_Controller {
 		@Autowired 
 	ptype_service service;
 	
 	
 	@RequestMapping("type-list")
-	public void select(ModelMap map,Integer parentid,SearchInfo s,ptype t){//不能加String类型的参数，只能通过对象传进来
+	public String select(ModelMap map,Integer parentid,SearchInfo s,ptype t){//不能加String类型的参数，只能通过对象传进来
 		map.put("typelist", service.select(new SearchInfo(" where type.parentid=0 ",false)));
 		
 		if(parentid==null) parentid=0;	
@@ -51,46 +53,53 @@ public class ptype_controller {
 		s.setWhere(" where type.parentid=" +parentid);//--当前结点的下级
 		map.put("list", service.select(s));
 		
+		return "product/type-list";
+		
 }
 	@RequestMapping("gettypelist")
 	public @ResponseBody List<ptype> gettypelist(int id){
-		return service.select(new SearchInfo(" where type.parentid= "+id, false));
+	return service.select(new SearchInfo(" where type.parentid= "+id, false));
 	}
 	
-	//@RequestBody  将json对象转为json串回应请求。edit页面调用
-	@RequestMapping("insert")
+	
+	
+	
+	
+	@RequestMapping("typeinsert")
 	public   @ResponseBody jsonInfo  insert(@RequestBody ptype t){
 	service.insert(t);
 	return new jsonInfo(1,"");
 	}
-	@RequestMapping("delete")
+	
+	
+	@RequestMapping("typedelete")
 	public  String delete(int id){
 		service.delete(id);
 		return "redirect:type-list";
 		}
 	
-	@RequestMapping("update")
-	public   @ResponseBody jsonInfo update(@RequestBody ptype t){
+	@RequestMapping("typeupdate")
+	public   @ResponseBody jsonInfo  update(@RequestBody ptype t){
 	service.update(t);
 	return new jsonInfo(1,"");
 	}
 	
 	
-	@RequestMapping("add")
+	@RequestMapping("typeadd")
 	public String add(ModelMap map,SearchInfo s) {
-		List list = service.select1();
+		List list = service.selectAll();
 		
 		System.out.println(s.getWhere());
 		System.out.println(list.size());
 		map.put("product_type",list);	
-		return "type/type-add";//指向视图完整名字，并不是指向方法
+		return "product/type-add";//指向视图完整名字，并不是指向方法
 	}
 	
 	
-	 @RequestMapping("edit")
-	   public String  edit(ModelMap map,int id,int parentid) {		 
+	 @RequestMapping("typeedit")
+	   public String  edit(ModelMap map,int id,Integer parentid) {		 
 		 map.put("info",service.getById(id));
 		map.put("parentid", parentid);//修改时知道上级的id
-		 return "type/type-edit";
+		 return "product/type-edit";
 		}
-}*/
+}

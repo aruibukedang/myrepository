@@ -19,7 +19,7 @@
     <script type="text/javascript" src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript" src="../lib/layui/layui.js" charset="utf-8"></script>
     <script type="text/javascript" src="../js/xadmin.js"></script>
-    <script type="text/javascript" src="../fileupload/js/jquery.min.js"></script>
+    <script type="text/javascript" src="../fileupload/js/jquery-3.3.1.min.js"></script>
     <script type="text/javascript" src="../fileupload/js/dropzone.js"></script>
 <script type="text/javascript" src="../fileupload/js/dropzone-amd-module.js"></script>
     <!-- 让IE8/9支持媒体查询，从而兼容栅格 -->

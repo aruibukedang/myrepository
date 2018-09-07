@@ -16,20 +16,19 @@ public class ptype_serviceImpl implements ptype_service {
     
 	@Autowired
 	ptype_dao dao;
-	
-	
-	public List<ptype> select(SearchInfo info) {
-		List<ptype> pt = dao.select(info);
-		return pt ;
-	}
 
-	public void insert(ptype p) {
-		dao.insert(p);
+	public List<ptype> select(SearchInfo s) {
 		
+		return dao.select(s);
 	}
 
-	public void update(ptype p) {
-		dao.update(p);
+	public List<ptype> selectAll() {
+		// TODO Auto-generated method stub
+		return dao.selectAll();
+	}
+
+	public void insert(ptype t) {
+		dao.insert(t);
 		
 	}
 
@@ -38,14 +37,16 @@ public class ptype_serviceImpl implements ptype_service {
 		
 	}
 
-	public ptype getById(int id) {
-
-     return dao.getById(id);
-	}
-
-	public List<ptype> select1() {
+	public void update(ptype t) {
 		
-		return dao.select1();
+		dao.update(t);
 	}
+
+	public ptype getById(int id) {
+		
+		return dao.getById(id);
+	}
+	
+	
 
 }

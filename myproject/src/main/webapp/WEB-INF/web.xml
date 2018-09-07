@@ -7,7 +7,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http:/
 
   
 
-    <!-- <filter>
+     <filter>
         <filter-name>loginFilter</filter-name>
         <filter-class>Filter.loginFilter</filter-class>
         
@@ -22,7 +22,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http:/
         <filter-name>loginFilter</filter-name>
         <url-pattern>/*</url-pattern>
     </filter-mapping>
- -->
+
    
 
   

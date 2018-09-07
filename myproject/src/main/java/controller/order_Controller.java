@@ -1,5 +1,6 @@
 package controller;
 
+import org.apache.ibatis.annotations.Select;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -21,12 +22,22 @@ public class order_Controller {
 	@Autowired
 	orders_details_service dservice;
 	
+	
 	@RequestMapping("order-list")
-	public String def(String txt,ModelMap model) {
-		if(txt==null) txt="";
-		model.put("list", rservice.def(txt));
+	public String def(ModelMap model) {
+		
+		model.put("list", rservice.def());
 		return "order/order-list";
 	}
+	
+	@RequestMapping("orders-details")
+	public String Select(ModelMap m) {
+		m.put("list", dservice.select());
+		return "order/orders-details";
+		
+	}
+	
+	
 	
 	@RequestMapping("search")
 	public String getId(int id,ModelMap model) {

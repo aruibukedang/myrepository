@@ -36,57 +36,56 @@
 <table class="table table-border table-bordered table-hover table-bg">
 	
 		<tbody>
-		<c:forEach items="${requestScope.showlist}" var="r">
+		
 		<tr class="text-c">
 				
 				<td>管理员id</td>
-				<td>${r.nike}</td>
-				<td class="f-14"><a title="编辑" href="javascript:;" onclick="admin_role_edit('编辑','edit?id='+${r.id},${r.id})" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a> 
+				<td>${requestScope.peopleinfo.id}</td>
+				
 				</td>		
 			</tr>
 			<tr class="text-c">
 				
 				<td>用户名</td>
-				<td>${r.nike}</td>
-				<td class="f-14"><a title="编辑" href="javascript:;" onclick="admin_role_edit('编辑','edit?id='+${r.id},${r.id})" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a> 
-				</td>		
+				<td>${requestScope.peopleinfo.nike}</td>
+			
+					
 			</tr>
 			<tr class="text-c">
-				<td><input type="checkbox" value="" name=""></td>
+				
 				<td>密码</td>
-				<td >${r.password}</td>
-				<td class="f-14"><a title="编辑" href="javascript:;" onclick="admin_role_edit('编辑','edit?id='+${r.id},${r.id})" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a> 
-				</td>		
+				
+				<td class="f-14"><a title="编辑" href="javascript:;" onclick="admin_role_edit('编辑','edit?id=${requestScope.peopleinfo.id},${requestScope.peopleinfo.id}')" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a> 
+						
 			</tr>
 			<tr class="text-c">
-				<td><input type="checkbox" value="" name=""></td>
+				
 				<td>性别</td>
-				<td>${r.sexes}</td>
-				<td class="f-14"><a title="编辑" href="javascript:;" onclick="admin_role_edit('编辑','edit?id='+${r.id},${r.id})" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a> 
-				</td>		
+				<td>${requestScope.peopleinfo.sexes}</td>
+				
+						
 			</tr>
 			<tr class="text-c">
-				<td><input type="checkbox" value="" name=""></td>
+				
 				<td>电话</td>
-				<td>${r.tel}</td>
-				<td class="f-14"><a title="编辑" href="javascript:;" onclick="admin_role_edit('编辑','edit?id='+${r.id},${r.id})" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a> 
-				</td>		
+				<td>${requestScope.peopleinfo.tel}</td>
+					
 			</tr>
 			<tr class="text-c">
-				<td><input type="checkbox" value="" name=""></td>
+				
 				<td>权限</td>
-				<td>${r.powers}</td>
-				<td class="f-14"><a title="编辑" href="javascript:;" onclick="admin_role_edit('角色编辑','edit?id='+${r.id},${r.id})" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a> 
-				</td>		
+				<td>${requestScope.peopleinfo.powers}</td>
+			
+						
 			</tr>
 			<tr class="text-c">
-				<td><input type="checkbox" value="" name=""></td>
+				
 				<td>状态</td>
-				<td>${r.statuses}</td>
-				<td class="f-14"><a title="编辑" href="javascript:;" onclick="admin_role_edit('角色编辑','edit?id='+${r.id},${r.id})" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a> 
-				</td>		
-			</tr>
-			</c:forEach>
+				<td>${requestScope.peopleinfo.statuses}</td>
+				
+					
+      	</tr>
+			
 		</tbody>
 	</table>
 
@@ -105,54 +104,6 @@
 <script type="text/javascript">
 
 
-function save() {
-	
-	
-	
-	
-/* 	 $.ajax({
-         //几个参数需要注意一下
-             type: "POST",//方法类型
-             dataType: "json",//预期服务器返回的数据类型
-             url: "update" ,//url
-             data: $('.form').serialize(),
-             success: function (json) {
-                 console.log(result);//打印服务端返回的数据(调试用)
-                 if (json.status>0) {
-                	 parent.fresh();
-         			var index=parent.layer.getFrameIndex(window.name);
-         			parent.layer.close(index);
-                 }else{
-         			alert(json.text);
-         		}
-                 ;
-             },
-             error : function() {
-                 alert("异常！");
-             }
-         });
-	 */
-	
-
-	$.post($(".form").attr("action"),$(".form").serialize(),function(json){
-		
-		if(json.status>0){
-			
-			 //var index=parent.layer.getFrameIndex(window.name);
-			//refreshParent(index);
-			parent.location.reload();
-/* 			parent.fresh(); */
-			var index=parent.layer.getFrameIndex(window.name);
-			
-		parent.layer.close(index);
-		}else{
-			alert(json.text);
-		}
-			
-	},"json");
-
-	
-	}
 
 
 

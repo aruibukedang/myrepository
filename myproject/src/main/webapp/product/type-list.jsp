@@ -18,10 +18,7 @@ isELIgnored="false"
     <script type="text/javascript" src="../lib/layui/layui.js" charset="utf-8"></script>
     <script type="text/javascript" src="../js/xadmin.js"></script>
     <!-- 让IE8/9支持媒体查询，从而兼容栅格 -->
-    <!--[if lt IE 9]>
-      <script src="https://cdn.staticfile.org/html5shiv/r29/html5.min.js"></script>
-      <script src="https://cdn.staticfile.org/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+ 
   </head>
   
   <body>
@@ -36,17 +33,23 @@ isELIgnored="false"
         <i class="layui-icon" style="line-height:30px">ဂ</i></a>
     </div>
     <div class="x-body">
- <div class="layui-input-inline ">
+
+
+
+<%--  <div class="layui-input-inline ">
    <select onchange="changer(this)">
    <c:forEach items='${requestScope.typelist}' var="r"><!-- //items要迭代的list -->
    <option value="${r.id} ">${r.name}</option>
    </c:forEach>
    </select>
   </div>
+   --%>
+  
+  
          
          <div>
          <label>上级：</label><label>${requestScope.path}</label>
-        <button class="layui-btn" onclick="x_admin_show('添加商品','add')"><i class="layui-icon"></i>添加</button>      
+        <button class="layui-btn" onclick="x_admin_show('添加商品','typeadd','600','300')"><i class="layui-icon"></i>添加</button>      
    </div> 
       <table class="layui-table">
         <thead>
@@ -56,7 +59,7 @@ isELIgnored="false"
             </th>
             <th>名称</th>
             <th>上级名称</th>
-           
+           <th>操作</th>
         </thead>
         <tbody>
           
@@ -72,13 +75,12 @@ isELIgnored="false"
 						<td>${r.parent_name}</td>
 						
            
-            <td class="td-status">
-              <span class="layui-btn layui-btn-normal layui-btn-mini">已启用</span></td>
+         
             <td class="td-manage">
               <a  href="type-list?parentid=${r.id} "  title="下级">
                 <i class="layui-icon">&#xe601;</i>
               </a>
-              <a title="编辑"  onclick="" href="javascript:type_change(${r.id})">
+              <a title="编辑"  onclick="x_admin_show('添加商品','typeedit?id=${r.id}','600','300')" href="javascript:void(0);">
                 <i class="layui-icon">&#xe642;</i>
               </a>
               
@@ -172,11 +174,11 @@ isELIgnored="false"
       /*用户-删除*/
      function admin_del(id) {
 			if(confirm("确认删除")){
-				location.href="delete?id="+id;
+				location.href="typedelete?id="+id;
 			}
       }
      function type_change(id) {			
-			location.href="edit?id="+id;		
+			location.href="typeedit?id="+id;		
 	}
 
       function delAll (argument) {

@@ -13,8 +13,8 @@ import entity.orders;
 @Repository("order_dao")
 public interface order_dao {
 	
-	@Select(value = "select * from orders where code like CONCAT(CONCAT('%', #{txt}),'%')")
-	public List<orders> def(String txt);
+	@Select("select * from orders")
+	public List<orders> def();
 
 	@Insert("insert into orders(date,code,amount,nowamount,address_id,user_id,status,comments) values(#{date},#{code},#{amount},#{nowamount},#{address_id},#{user_id},#{status},#{comments})")
 	public void insert(orders r);

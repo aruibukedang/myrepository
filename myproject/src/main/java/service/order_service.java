@@ -7,7 +7,7 @@ import entity.orders;
 public interface order_service {
 	
 	
-	public List<orders> def(String txt);
+	public List<orders> def();
 
 	public void insert(orders r);
 

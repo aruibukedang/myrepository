@@ -14,19 +14,13 @@
 <meta http-equiv="Cache-Control" content="no-siteapp" />
 <link rel="Bookmark" href="/favicon.ico" >
 <link rel="Shortcut Icon" href="/favicon.ico" />
-<!--[if lt IE 9]>
-<script type="text/javascript" src="lib/html5shiv.js"></script>
-<script type="text/javascript" src="lib/respond.min.js"></script>
-<![endif]-->
+
 <link rel="stylesheet" type="text/css" href="m1/static/h-ui/css/H-ui.min.css" />
 <link rel="stylesheet" type="text/css" href="m1/static/h-ui.admin/css/H-ui.admin.css" />
 <link rel="stylesheet" type="text/css" href="m1/lib/Hui-iconfont/1.0.8/iconfont.css" />
 <link rel="stylesheet" type="text/css" href="m1/static/h-ui.admin/skin/default/skin.css" id="skin" />
 <link rel="stylesheet" type="text/css" href="m1/static/h-ui.admin/css/style.css" />
-<!--[if IE 6]>
-<script type="text/javascript" src="lib/DD_belatedPNG_0.0.8a-min.js" ></script>
-<script>DD_belatedPNG.fix('*');</script>
-<![endif]-->
+
 <title>欢迎来到商城管理系统</title>
 <meta name="keywords" content="H-ui.admin v3.1,H-ui网站后台模版,后台模版下载,后台管理系统模版,HTML后台模版下载">
 <meta name="description" content="H-ui.admin v3.1，是一款由国人开发的轻量级扁平化网站后台模板，完全免费开源的网站后台管理系统模版，适合中小型CMS后台系统。">
@@ -41,10 +35,10 @@
 				<ul class="cl">
 					<li class="dropDown dropDown_hover"><a href="javascript:;" class="dropDown_A"><i class="Hui-iconfont">&#xe600;</i> 新增 <i class="Hui-iconfont">&#xe6d5;</i></a>
 						<ul class="dropDown-menu menu radius box-shadow">
-							<li><a href="javascript:;" onclick="article_add('添加资讯','m1/article-add.html')"><i class="Hui-iconfont">&#xe616;</i> 资讯</a></li>
-							<li><a href="javascript:;" onclick="picture_add('添加资讯','m1/picture-add.html')"><i class="Hui-iconfont">&#xe613;</i> 图片</a></li>
-							<li><a href="javascript:;" onclick="product_add('添加资讯','m1/product-add.html')"><i class="Hui-iconfont">&#xe620;</i> 产品</a></li>
-							<li><a href="javascript:;" onclick="member_add('添加用户','m1/member-add.html','','510')"><i class="Hui-iconfont">&#xe60d;</i> 用户</a></li>
+							<li><a href="javascript:;" onclick="article_add('添加资讯','m1/article-add.html')"><i class="Hui-iconfont">&#xe616;</i> </a></li>
+							<li><a href="javascript:;" onclick="picture_add('添加资讯','m1/picture-add.html')"><i class="Hui-iconfont">&#xe613;</i> </a></li>
+							<li><a href="javascript:;" onclick="product_add('添加资讯','m1/product-add.html')"><i class="Hui-iconfont">&#xe620;</i> </a></li>
+							<li><a href="javascript:;" onclick="member_add('添加用户','m1/member-add.html','','510')"><i class="Hui-iconfont">&#xe60d;</i> </a></li>
 					</ul>
 				</li>
 			</ul>
@@ -85,8 +79,8 @@
 			<dd>
 				<ul>
 					<li><a data-href="operator/admin-role" data-title="角色管理" href="javascript:void(0)">角色管理</a></li>
-					<li><a data-href="m1/admin-permission.html" data-title="权限管理" href="javascript:void(0)">权限管理</a></li>
-					<li><a data-href="m1/admin-list.html" data-title="管理员列表" href="javascript:void(0)">管理员列表</a></li>
+				
+				
 			</ul>
 		</dd>
 	</dl>
@@ -98,7 +92,7 @@
 				<ul>
 				<!-- 	<li><a data-href="m1/product-brand.html" data-title="品牌管理" href="javascript:void(0)">品牌管理</a></li>
 					<li><a data-href="m1/product-list.html" data-title="产品管理" href="javascript:void(0)">产品管理</a></li> -->
-					<li><a data-href="m1/product-category.html" data-title="分类管理" href="javascript:void(0)">分类管理</a></li>
+					<li><a data-href="product/type-list" data-title="分类管理" href="javascript:void(0)">分类管理</a></li>
 					
 					<li><a data-href="product/product-list" data-title="商品管理" href="javascript:void(0)">商品管理</a></li>
 			</ul>
@@ -110,19 +104,13 @@
 			<dt><i class="Hui-iconfont">&#xe616;</i> 订单管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
 			<dd>
 				<ul>
-					<li><a data-href="order/order-list" data-title="资讯管理" href="javascript:void(0)">订单管理</a></li>
+					<li><a data-href="order/order-list" data-title="订单管理" href="javascript:void(0)">订单管理</a></li>
+					<li><a data-href="order/orders-details" data-title="订单详情" href="javascript:void(0)">订单详情</a></li>
 					
 			</ul>
 		</dd>
 	</dl>
-		<dl id="menu-picture">
-			<dt><i class="Hui-iconfont">&#xe613;</i> 图片管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
-			<dd>
-				<ul>
-					<li><a data-href="m1/picture-list.html" data-title="图片管理" href="javascript:void(0)">图片管理</a></li>
-			</ul>
-		</dd>
-	</dl>
+	
 		
 		<dl id="menu-comments">
 			<dt><i class="Hui-iconfont">&#xe622;</i> 评论管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
@@ -133,34 +121,9 @@
 			</ul>
 		</dd>
 	</dl>
-		<dl id="menu-member">
-			<dt><i class="Hui-iconfont">&#xe60d;</i> 会员管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
-			<dd>
-				<ul>
-					<li><a data-href="m1/member-list.html" data-title="会员列表" href="javascript:;">会员列表</a></li>
-					<li><a data-href="m1/member-del.html" data-title="删除的会员" href="javascript:;">删除的会员</a></li>
-					<li><a data-href="m1/member-level.html" data-title="等级管理" href="javascript:;">等级管理</a></li>
-					<li><a data-href="m1/member-scoreoperation.html" data-title="积分管理" href="javascript:;">积分管理</a></li>
-					<li><a data-href="m1/member-record-browse.html" data-title="浏览记录" href="javascript:void(0)">浏览记录</a></li>
-					<li><a data-href="m1/member-record-download.html" data-title="下载记录" href="javascript:void(0)">下载记录</a></li>
-					<li><a data-href="m1/member-record-share.html" data-title="分享记录" href="javascript:void(0)">分享记录</a></li>
-			</ul>
-		</dd>
 	
-		<dl id="menu-tongji">
-			<dt><i class="Hui-iconfont">&#xe61a;</i> 系统统计<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
-			<dd>
-				<ul>
-					<li><a data-href="m1/charts-1.html" data-title="折线图" href="javascript:void(0)">折线图</a></li>
-					<li><a data-href="m1/charts-2.html" data-title="时间轴折线图" href="javascript:void(0)">时间轴折线图</a></li>
-					<li><a data-href="m1/charts-3.html" data-title="区域图" href="javascript:void(0)">区域图</a></li>
-					<li><a data-href="m1/charts-4.html" data-title="柱状图" href="javascript:void(0)">柱状图</a></li>
-					<li><a data-href="m1/charts-5.html" data-title="饼状图" href="javascript:void(0)">饼状图</a></li>
-					<li><a data-href="m1/charts-6.html" data-title="3D柱状图" href="javascript:void(0)">3D柱状图</a></li>
-					<li><a data-href="m1/charts-7.html" data-title="3D饼状图" href="javascript:void(0)">3D饼状图</a></li>
-			</ul>
-		</dd>
-	</dl>
+	
+		
 		<dl id="menu-system">
 			<dt><i class="Hui-iconfont">&#xe62e;</i> 系统管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
 			<dd>

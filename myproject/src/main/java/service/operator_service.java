@@ -5,11 +5,12 @@ import java.util.List;
 
 
 import entity.operator;
+import util.SearchInfo;
 
 public interface operator_service {
 	
 	
-	public List<operator> select();
+	public List<operator> select(SearchInfo info);
 	
     
     public void insert(operator o);

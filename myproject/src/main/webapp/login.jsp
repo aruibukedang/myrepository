@@ -18,9 +18,24 @@
         <link rel="stylesheet" href="assets/css/reset.css">
         <link rel="stylesheet" href="assets/css/supersized.css">
         <link rel="stylesheet" href="assets/css/style.css">
-        
+             <script src="assets/js/jquery-1.8.2.min.js"></script>
         <script type="text/javascript">
         var a=0;
+        
+        $(function(){
+        	
+           if(${requestScope.error!=null}){
+        	if (${requestScope.error==1}) {
+        		layer.msg('账号或密码错误',{icon: 6,time:1000});
+			}
+        	if($requestScope.error==2){
+        		layer.msg('验证码错误',{icon: 6,time:1000});
+        	}
+        	
+           }
+        	
+        });
+        
         
         </script>
 
@@ -56,7 +71,7 @@
         <div align="center">Collect from <a href="http://www.cssmoban.com/" target="_blank" title="æ¨¡æ¿ä¹å®¶">æ¨¡æ¿ä¹å®¶</a></div>
 
         <!-- Javascript -->
-        <script src="assets/js/jquery-1.8.2.min.js"></script>
+   
         <script src="assets/js/supersized.3.2.7.min.js"></script>
         <script src="assets/js/supersized-init.js"></script>
         <script src="assets/js/scripts.js"></script>

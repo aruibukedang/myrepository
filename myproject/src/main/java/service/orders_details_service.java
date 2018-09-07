@@ -7,6 +7,8 @@ import entity.orders_details;
 public interface orders_details_service {
 	
 	public List<orders_details> def(String txt);
+	
+	public List<orders_details> select();
 
 	public void insert(orders_details d);
 	

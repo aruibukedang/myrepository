@@ -9,11 +9,12 @@ import org.apache.ibatis.annotations.Update;
 import org.springframework.stereotype.Repository;
 
 import entity.operator;
+import util.SearchInfo;
 
-@Repository
+@Repository("operator_dao")
 public interface operator_dao {
-	@Select("select * from operator")
-	public List<operator> select();
+	@Select("select * from operator ${where}")
+	public List<operator> select(SearchInfo info);
 	
 	 @Insert("insert into operator(nike,name,sex,tel,power,status,comments) values(#{nike},#{name},#{sex},#{tel},#{power},#{status},#{comments})")
      public void insert(operator o);

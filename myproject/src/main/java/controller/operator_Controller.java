@@ -20,9 +20,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import entity.operator;
 import entity.product;
-import entity.student;
 import service.operator_service;
 import util.MD5;
+import util.SearchInfo;
 import util.jsonInfo;
 
 @Controller
@@ -33,10 +33,27 @@ public class operator_Controller {
 	
 	
 	@RequestMapping("operator/admin-role")
-	private String ref(ModelMap m) {
-		List<operator> oList = service.select();
+	private String ref(Integer value,ModelMap m,SearchInfo info) {
+		String where = "";
+      if (value==null)value=0; 
+      
+      switch (value) {
+		case 1:
+			where="where power=0";
+			break;
+		case 2:
+			where="where power=1";
+			break;
+	
+		default:
+			where="";
+			
+		}
+      
 		
-		
+		info.setWhere(where);
+		System.out.println(where);
+		List<operator> oList = service.select(info);		
 		m.put("list", oList);
 		 
 		return "operator/admin-role";
@@ -49,6 +66,9 @@ public class operator_Controller {
 		return new jsonInfo(1, "");
 		
 	}
+	
+	
+
 	
 
 	
@@ -90,22 +110,30 @@ public class operator_Controller {
 	
 	
 	
+	
+	
+	
+	
 	@RequestMapping("exit")
 	public String exit(HttpServletRequest req) {
 		HttpSession session = req.getSession();
-		session.removeAttribute("username");;   
+		session.removeAttribute("username");   
 		return "login";
 		
 		
 	}
 	
+
+	
 	@RequestMapping("operator/show")
-	public String show(String nike,ModelMap m) {
+	public String show(HttpSession session,ModelMap m) {
+     String nike=(String) session.getAttribute("username");
+     m.put("peopleinfo", service.getByName(nike));
 		
-		m.put("showlist", service.getByName(nike));
 		return "operator/show";
 		
 	}
+	
 	
 	@RequestMapping("login")
 	private String login(HttpServletRequest req) {
@@ -127,133 +155,35 @@ public class operator_Controller {
 
 			if (username.equals(nike)&&password.equals(pwd)) {
 				
-				if (power==0) {
+				
 					
 					
 		        
 			        session.setAttribute("username",username);
+			        session.setAttribute("operator", service.getByName(username));
 			        session.setMaxInactiveInterval(30 * 60);
 					return "index";
-					
-				}
+		
 				
 				
-				else if (power==1) {
-					
-				
-			        
-			        session.setAttribute("username",username);
-			        session.setMaxInactiveInterval(30 * 60);
-					return "index2";
-					
-				}
+			
 					
 			}else {
+				session.setAttribute("error", 1);
 				return "redirect:/login.jsp";
 			}
 			
 		}else {
-			session.setAttribute("error", "验证码错误");
+			session.setAttribute("error", 2);
 			return "redirect:/login.jsp";
 		}
-		
 			
-			
-			return "redirect:/login.jsp";
-			
-		
-		
 		
 	
-			
 
 	}
 	
-	
-//	protected void def(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-//		
-//		 String username = req.getParameter("username");
-//		 
-//		if(username.startsWith("st")) {
-//			
-//			stlogin(req, resp);
-//		}
-//		else if (username.startsWith("te")) {
-//			
-//			telogin(req, resp);
-//		}else  {
-//			
-//			resp.sendRedirect("/stweb003/login.jsp");
-//		}
-//		
-//		
-//	}
-	
-	
-	
-	
-//	public boolean startsWith(String prefix) {
-//		return false;
-//		
-//	}
-//	
-//	
-//	
-//	protected void stlogin(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-//		String username = req.getParameter("username");
-//		String password = req.getParameter("password");
-//		ArrayList<HashMap<String, Object>>  lists=SqlHelper.executeQuery("select password from student where code=?",username);
-//		
-//		
-//		
-//if (password.equals(lists.get(0).get("password"))) {
-//			
-//			HttpSession session=req.getSession();//返回与当前request相关联的session，如果没有则在服务器端创建一个;
-//	        
-//	        session.setAttribute("username",username);
-//	        session.setMaxInactiveInterval(30 * 60);
-//	        
-//			req.setCharacterEncoding("utf-8");
-//			resp.setContentType("text/html;charset=utf-8");
-//			
-//			
-//			req.getRequestDispatcher("/index.jsp").forward(req, resp);
-//		} else {
-//			
-//			req.getRequestDispatcher("/login.jsp").forward(req, resp);
-//		}
-//		 
-//		
-//	   
-//}
-//	
-//	protected void telogin(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-//		 String username = req.getParameter("username");
-//		String password = req.getParameter("password");
-//		String randomCode = req.getParameter("randomCode");
-//		 ArrayList<HashMap<String, Object>> lists=SqlHelper.executeQuery("select password from teacher where code='"+username+"'");
-//		
-//		if (password.equals(lists.get(0).get("password"))) {
-//			
-//			HttpSession session=req.getSession();//返回与当前request相关联的session，如果没有则在服务器端创建一个;
-//			
-//			
-//	        session.setAttribute("username",req.getParameter("username"));
-//			
-//			req.setCharacterEncoding("utf-8");
-//			resp.setContentType("text/html;charset=utf-8");
-//			
-//			
-//			req.getRequestDispatcher("/index2.jsp").forward(req, resp);
-//		} else {
-//			
-//			req.getRequestDispatcher("/login.jsp").forward(req, resp);
-//		}
-//		 
-		
-	
-		
-		
+
 		
 		
 
